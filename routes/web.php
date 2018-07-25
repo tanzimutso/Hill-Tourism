@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'AdminPanelController@dashboard')->name('dashboard');
+Route::get('/booking', 'AdminPanelController@booking')->name('booking');
+Route::get('/addBus', 'AdminPanelController@addNewBus')->name('add_bus');
+Route::get('/viewAllBus', 'AdminPanelController@viewAllBus')->name('all_bus');
+Route::get('/addCancellation', 'AdminPanelController@addNewCancellation')->name('add_cancellation');
+Route::get('/cancellation', 'AdminPanelController@cancellation')->name('cancellation');
+Route::get('/addDriver', 'AdminPanelController@addNewDriver')->name('add_driver');
+Route::get('/allDriver', 'AdminPanelController@viewAllDriver')->name('all_driver');
+Route::get('/addRoute', 'AdminPanelController@addNewRoute')->name('add_route');
+Route::get('/allRoute', 'AdminPanelController@viewAllRoute')->name('all_route');
