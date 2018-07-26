@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{{ url('assets/bower_components/jvectormap/jquery-jvectormap.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ url('assets/dist/css/AdminLTE.min.css') }}">
+  <link rel="stylesheet" href="{{ url('assets/css/sweetalert2.min.css') }}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ url('assets/dist/css/skins/_all-skins.min.css') }}">
@@ -149,7 +150,6 @@
               </li>
             </ul>
           </li>
-          </li>
 
           <li class="treeview">
             <a href="#">
@@ -224,6 +224,7 @@
     </aside>
 
 
+
     @yield('content')
 
 
@@ -244,6 +245,10 @@
     <script src="{{ url('assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
     <!-- SlimScroll -->
     <script src="{{ url('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ url('assets/js/sweetalert2.min.js') }}"></script>
+
+    @yield('script')
+
 </body>
 
 </html>

@@ -23,6 +23,11 @@
 
       <!-- Main content -->
       <section class="content">
+          @if(Session::has('message'))
+          <div class="alert alert-{{ session('status') }}">
+              {{ session('message') }}
+          </div>
+      @endif
 
         <!-- Default box -->
         <div class="box">
@@ -59,43 +64,58 @@
             <table class="table table-hover table-bordered">
               <thead>
                 <tr>
-                  <th>Bus Name</th>
-                  <th>Bus RegiNumber</th>
-                  <th>Bus Type</th>
+                  <th>#</th>
+                  <th>Vehicle Type</th>
+                  <th>Vehicle Registration Number</th>
+                  <th>Vehicle Type ID</th>
+                  <th>Vehicle Serial No</th>
                   <th>Meximum seats</th>
-                  <th>Start Point</th>
-                  <th>Start Time</th>
-                  <th>End Point</th>
-                  <th>End Time</th>
-                  <th>Action</th>
+                  <th>Status</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
+                  <?php $count = 1; ?>
+                  @foreach($vehicles as $vehicle)
                 <tr>
-                  <td scope="row">Test</td>
-                  <td scope="row">RegiA2212</td>
-                  <td scope="row">Ac Bus</td>
-                  <td scope="row">15</td>
-                  <td scope="row">Bandarban sadar</td>
-                  <td scope="row">4:00 PM</td>
-                  <td scope="row">Sunamondir</td>
-                  <td scope="row">4:45 PM</td>
-                  <td>
-                    <button type="button" class="btn btn-primary">View</button>
-                    <button type="button" class="btn btn-warning">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                  <td scope="row">{{ $count++ }}</td>
+                  <td scope="row">{{ $vehicle->vehicle_type }}</td>
+                  <td scope="row">{{ $vehicle->vehicle_reg_no }}</td>
+                  <td scope="row">{{ $vehicle->vehicle_type_id }}</td>
+                  <td scope="row">{{ $vehicle->vehicle_serial_no }}</td>
+                  <td scope="row">{{ $vehicle->seat_capacity }}</td>
+                  <td scope="row">
+                      @if($vehicle->status == 'active')
+                          <span class="badge" style="background-color: #00a157">Active</span>
+                      @endif
+                      @if($vehicle->status == 'inactive')
+                             <span class="badge" style="background-color: red">Inactive</span>
+                      @endif
+                    <td>
+                    <button type="button" class="btn btn-primary">
+                        <a style="color:aliceblue" href="{{ route('vehicle_show', ['id' => $vehicle->id]) }}">
+                            View</a></button>
+                    <button type="button" class="btn btn-warning">
+                        <a style="color:aliceblue" href="{{ route('vehicle_edit', ['id' => $vehicle->id]) }}">
+                          Edit
+                        </a>
+                    </button>
+                    <a class="btn btn-danger delete" style="color: #fff;">
+                        Delete</a>
+                    <input class="delete_url" type="hidden" value="{{ route('vehicle_delete', ['id' => $vehicle->id]) }}">
+
                   </td>
                 </tr>
+                @endforeach
                 <tr>
-                  <th>Bus Name</th>
-                  <th>Bus RegiNumber</th>
-                  <th>Bus Type</th>
-                  <th>Meximum seats</th>
-                  <th>Start Point</th>
-                  <th>Start Time</th>
-                  <th>End Point</th>
-                  <th>End Time</th>
-                  <th>Action</th>
+                    <th>#</th>
+                    <th>Vehicle Type</th>
+                    <th>Vehicle Registration Number</th>
+                    <th>Vehicle Type ID</th>
+                    <th>Vehicle Serial No</th>
+                    <th>Meximum seats</th>
+                    <th>Status</th>
+                    <th>Actions</th>
                 </tr>
               </tbody>
             </table>
@@ -139,7 +159,29 @@
       </section>
       <!-- /.content -->
       <!-- Scroll to top button -->
-      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
     </div>
     <!-- /.content-wrapper -->
+@endsection
+
+@section('script')
+<script>
+    $('.delete').click(function () {
+
+        var url = $(this).next('.delete_url').val();
+
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(function () {
+            window.location.href = url;
+        })
+
+    });
+</script>
 @endsection

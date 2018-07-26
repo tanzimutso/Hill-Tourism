@@ -35,20 +35,20 @@
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <form action="{{ route('vehicle_store') }}" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              {{ Form::open(['url' => route('vehicle_update', ['id' => $id]), 'method' => 'post','files' => 'false']) }}
+
                 <div class="box-body">
                   <div class="col-md-6">
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Vehicle Serial No</label>
                       <input type="text" class="form-control required" tabindex="1" 
-                      required="" name="vehicle_serial_no" placeholder="Vehicle Serial No">
+                     value="{{ $vehicle->vehicle_serial_no }}" required="" name="vehicle_serial_no" placeholder="Vehicle Serial No">
                     </div>
 
                     <div class="form-group">
                       <label>Vehicle Type</label>
                       <select tabindex="3" class="form-control select2 required" style="width: 100%;" name="vehicle_type">
-                        <option value="1"> - AC</option>
+                        <option value="{{ $vehicle->vehicle_type }}"> - {{ $vehicle->vehicle_type }}</option>
                         <option value="54"> - AC Bus</option>
                         <option value="77"> - RES</option>
                         <option value="89"> - afdasfa</option>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Vehicle Type Id</label>
-                      <input type="text" class="form-control required" name="vehicle_type_id"  placeholder="Vehicle Type Id..">
+                      <input type="text" class="form-control required" value="{{ $vehicle->vehicle_type_id }}"  name="vehicle_type_id"  placeholder="Vehicle Type Id..">
                     </div>
 
 
@@ -83,11 +83,11 @@
 
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Vehicle Register Number</label>
-                      <input type="text" class="form-control required" name="vehicle_reg_no" required="" placeholder="Vehicle RegiNumber">
+                      <input type="text" class="form-control required" value="{{ $vehicle->vehicle_reg_no }}"  name="vehicle_reg_no" required="" placeholder="Vehicle RegiNumber">
                     </div>
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Seat Capacity</label>
-                      <input type="number" class="form-control required" name="seat_capacity" required=""
+                      <input type="number" class="form-control required" value="{{ $vehicle->seat_capacity }}" name="seat_capacity" required=""
                         placeholder="Maximum Seats">
                     </div>
                   </div>
@@ -96,13 +96,14 @@
                     <div class="col-md-6">
                     <label>Status</label>
                     <select class="form-control select2 required" style="width: 35%;" name="status">
+                      <option value="{{ $vehicle->status }}">{{ $vehicle->status }}</option>
                       <option value="active">Active</option>
                       <option value="inactive">Inactive</option>
                     </select>
                   </div>
                   </div>
-                  <input style="margin-top: 30px;" type="submit" class="btn btn-primary" value="submit">
-              </form>
+                  <input style="margin-top: 30px;" type="submit" class="btn btn-warning" value="update">
+                  {{ Form::close() }}
               </div>
               <!-- /.box -->
             </div>

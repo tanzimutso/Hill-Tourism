@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class AdminPanelController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -24,9 +23,6 @@ class AdminPanelController extends Controller
         return view('Admin.bus_add_new');
     }
 
-    public function viewAllBus(){
-        return view('Admin.bus_view_all');
-    }
 
     public function addNewCancellation(){
         return view('Admin.cancellation_add_new');

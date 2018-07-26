@@ -21,10 +21,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'AdminPanelController@dashboard')->name('dashboard');
 Route::get('/booking', 'AdminPanelController@booking')->name('booking');
 Route::get('/addBus', 'AdminPanelController@addNewBus')->name('add_bus');
-Route::get('/viewAllBus', 'AdminPanelController@viewAllBus')->name('all_bus');
+
 Route::get('/addCancellation', 'AdminPanelController@addNewCancellation')->name('add_cancellation');
 Route::get('/cancellation', 'AdminPanelController@cancellation')->name('cancellation');
 Route::get('/addDriver', 'AdminPanelController@addNewDriver')->name('add_driver');
 Route::get('/allDriver', 'AdminPanelController@viewAllDriver')->name('all_driver');
 Route::get('/addRoute', 'AdminPanelController@addNewRoute')->name('add_route');
 Route::get('/allRoute', 'AdminPanelController@viewAllRoute')->name('all_route');
+
+//vehicle crud Routes
+
+Route::get('/viewAllBus', 'VehicleController@index')->name('all_bus');
+Route::post('vehicle-store', 'VehicleController@store')->name('vehicle_store');
+Route::get('{id}/edit', 'VehicleController@edit')->name('vehicle_edit');
+Route::post('{id}/update', 'VehicleController@update')->name('vehicle_update');
+Route::get('{id}/delete', 'VehicleController@destroy')->name('vehicle_delete');
+Route::get('{id}/show', 'VehicleController@show')->name('vehicle_show');
+
+
