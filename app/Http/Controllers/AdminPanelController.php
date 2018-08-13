@@ -36,10 +36,6 @@ class AdminPanelController extends Controller
         return view('Admin.driver_add_new');
     }
 
-    public function viewAllDriver(){
-        return view('Admin.driver_view_all');
-    }
-
     public function addNewRoute(){
         return view('Admin.route_add_new');
     }

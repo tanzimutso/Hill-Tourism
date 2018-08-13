@@ -25,7 +25,6 @@ Route::get('/addBus', 'AdminPanelController@addNewBus')->name('add_bus');
 Route::get('/addCancellation', 'AdminPanelController@addNewCancellation')->name('add_cancellation');
 Route::get('/cancellation', 'AdminPanelController@cancellation')->name('cancellation');
 Route::get('/addDriver', 'AdminPanelController@addNewDriver')->name('add_driver');
-Route::get('/allDriver', 'AdminPanelController@viewAllDriver')->name('all_driver');
 Route::get('/addRoute', 'AdminPanelController@addNewRoute')->name('add_route');
 Route::get('/allRoute', 'AdminPanelController@viewAllRoute')->name('all_route');
 
@@ -37,5 +36,14 @@ Route::get('{id}/edit', 'VehicleController@edit')->name('vehicle_edit');
 Route::post('{id}/update', 'VehicleController@update')->name('vehicle_update');
 Route::get('{id}/delete', 'VehicleController@destroy')->name('vehicle_delete');
 Route::get('{id}/show', 'VehicleController@show')->name('vehicle_show');
+
+//driver crud Routes
+Route::post('driver-store', 'DriverController@store')->name('driver_store');
+Route::get('/allDriver', 'DriverController@index')->name('all_driver');
+Route::get('{id}/edit', 'DriverController@edit')->name('driver_edit');
+Route::get('{id}/show', 'DriverController@show')->name('driver_show');
+Route::get('{id}/delete', 'DriverController@destroy')->name('driver_delete');
+
+
 
 

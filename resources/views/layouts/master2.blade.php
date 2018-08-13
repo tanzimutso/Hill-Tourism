@@ -1,36 +1,36 @@
-<!DOCTYPE html>
-<html>
+  <!DOCTYPE html>
+  <html>
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{ url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ url('assets/bower_components/font-awesome/css/font-awesome.min.css') }}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ url('assets/bower_components/Ionicons/css/ionicons.min.css') }}">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="{{ url('assets/bower_components/jvectormap/jquery-jvectormap.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ url('assets/dist/css/AdminLTE.min.css') }}">
-  <link rel="stylesheet" href="{{ url('assets/css/sweetalert2.min.css') }}">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="{{ url('assets/dist/css/skins/_all-skins.min.css') }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="{{ url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ url('assets/bower_components/font-awesome/css/font-awesome.min.css') }}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="{{ url('assets/bower_components/Ionicons/css/ionicons.min.css') }}">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="{{ url('assets/bower_components/jvectormap/jquery-jvectormap.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ url('assets/dist/css/AdminLTE.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/sweetalert2.min.css') }}">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="{{ url('assets/dist/css/skins/_all-skins.min.css') }}">
 
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+  <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
 
     <header class="main-header">
@@ -39,10 +39,10 @@
       <a href="{{ route('dashboard') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini">
-          <b>A</b>LT</span>
+            <b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg">
-          <b>Admin</b>LTE</span>
+            <b>Admin</b>LTE</span>
       </a>
 
       <!-- Header Navbar: style can be found in header.less -->
@@ -76,15 +76,15 @@
                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                                <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
-                                    onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
+                    <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
+                       onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();">
+                      Logout
+                    </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                    </form>
                   </div>
                 </li>
               </ul>
@@ -114,10 +114,10 @@
           <div class="input-group">
             <input type="text" name="q" class="form-control" placeholder="Search...">
             <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                <i class="fa fa-search"></i>
-              </button>
-            </span>
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
           </div>
         </form>
         <!-- /.search form -->
@@ -136,8 +136,8 @@
               <i class="fa fa-table"></i>
               <span>Bus Management</span>
               <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
             </a>
             <ul class="treeview-menu">
               <li>
@@ -156,8 +156,8 @@
               <i class="fa fa-table"></i>
               <span>Route Details</span>
               <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
             </a>
             <ul class="treeview-menu">
               <li>
@@ -176,8 +176,8 @@
               <i class="fa fa-table"></i>
               <span>Driver Details</span>
               <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
             </a>
             <ul class="treeview-menu">
               <li>
@@ -196,8 +196,8 @@
               <i class="fa fa-table"></i>
               <span>Cancellation</span>
               <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
             </a>
             <ul class="treeview-menu">
               <li>
@@ -225,11 +225,11 @@
 
 
 
-    @yield('content')
+  @yield('content')
 
 
-
-    <!-- jQuery 3 -->
+</div>
+  <!-- jQuery 3 -->
     <script src="{{ url('assets/bower_components/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="{{ url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
@@ -247,8 +247,8 @@
     <script src="{{ url('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
     <script src="{{ url('assets/js/sweetalert2.min.js') }}"></script>
 
-    @yield('script')
+  @yield('script')
 
-</body>
+  </body>
 
-</html>
+  </html>

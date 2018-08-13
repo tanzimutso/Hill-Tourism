@@ -37,32 +37,33 @@
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <form role="form" action="" method="post" class="validate" enctype="multipart/form-data">
+              <form role="form" action="{{ route('driver_store') }}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="box-body">
                   <div class="col-md-6">
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Driver NID</label>
                       <input type="text" class="form-control required" tabindex="1" data-parsley-trigger="change" data-parsley-minlength="2" data-parsley-maxlength="15"
-                        data-parsley-pattern="^[a-zA-Z\  \/]+$" required="" name="bus_name" placeholder="Driver NID">
+                        data-parsley-pattern="^[a-zA-Z\  \/]+$" required="" name="NID_no" placeholder="Driver NID">
                       <span class="glyphicon  form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Driver Name</label>
                       <input type="text" class="form-control required" tabindex="1" data-parsley-trigger="change" data-parsley-minlength="2" data-parsley-maxlength="15"
-                        data-parsley-pattern="^[a-zA-Z\  \/]+$" required="" name="bus_name" placeholder="Driver NID">
+                        data-parsley-pattern="^[a-zA-Z\  \/]+$" required="" name="name" placeholder="Driver NID">
                       <span class="glyphicon  form-control-feedback"></span>
                     </div>
 
 
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Mobile No.</label>
-                      <input tabindex="5" type="text" class="form-control required" name="board_point" data-parsley-trigger="change" data-parsley-minlength="2"
+                      <input tabindex="5" type="text" class="form-control required" name="contact_no" data-parsley-trigger="change" data-parsley-minlength="2"
                         data-parsley-maxlength="15" data-parsley-pattern="^[a-zA-Z0-9\  \/]+$" required="" placeholder="Mobile no...">
                       <span class="glyphicon  form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Driver photo</label>
-                      <input tabindex="4" type="file" class="form-control required" data-parsley-trigger="change" required="" <span class="glyphicon  form-control-feedback">
+                      <input tabindex="4" type="file" class="form-control required" name="driver_image" data-parsley-trigger="change" required="" <span class="glyphicon  form-control-feedback">
                       </span>
                     </div>
 
@@ -74,34 +75,42 @@
 
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Vehicle RegiNumber</label>
-                      <input tabindex="2" type="text" class="form-control required" name="bus_reg_no" data-parsley-trigger="change" data-parsley-minlength="2"
+                      <input tabindex="2" type="text" class="form-control required" name="vehicle_reg_no" data-parsley-trigger="change" data-parsley-minlength="2"
                         data-parsley-maxlength="15" required="" placeholder="Bus RegiNumber">
                       <span class="glyphicon  form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Address</label>
-                      <input tabindex="4" type="text" class="form-control required" name="max_seats" data-parsley-trigger="change" required=""
-                        placeholder="Maximum Seats">
+                      <input tabindex="4" type="text" class="form-control required" name="address" data-parsley-trigger="change" required=""
+                        placeholder="Address">
                       <span class="glyphicon  form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Driver Licence No.</label>
-                      <input tabindex="4" type="text" class="form-control required" name="max_seats" data-parsley-trigger="change" required=""
-                        placeholder="Maximum Seats">
+                      <input tabindex="4" type="text" class="form-control required" name="license_no" data-parsley-trigger="change" required=""
+                        placeholder="License No..">
                       <span class="glyphicon  form-control-feedback"></span>
                     </div>
+
+                    <div class="form-group has-feedback">
+                      <label for="exampleInputEmail1">Vehicle Type No.</label>
+                      <input tabindex="4" type="text" class="form-control required" name="vehicle_type_no" data-parsley-trigger="change" required=""
+                             placeholder="License No..">
+                      <span class="glyphicon  form-control-feedback"></span>
+                    </div>
+
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Vehicle photo</label>
-                      <input tabindex="4" type="file" class="form-control required" data-parsley-trigger="change" required="" <span class="glyphicon  form-control-feedback">
+                      <input tabindex="4" type="file" name="vehicle_image" class="form-control required" data-parsley-trigger="change" required="" <span class="glyphicon  form-control-feedback">
                       </span>
                     </div>
                   </div>
+                </div>
               </form>
               </div>
               <!-- /.box -->
             </div>
           </div>
-        </div>
         <!-- /.row -->
       </section>
       <!-- /.content -->

@@ -61,45 +61,51 @@
             <table class="table table-hover table-bordered">
               <thead>
                 <tr>
+                  <th>#</th>
                   <th>Driver NID</th>
                   <th>Driver Name</th>
                   <th>Mobile No.</th>
-                  <td>Address</td>
+                  <th>Address</th>
                   <th>Driver Licence No.</th>
                   <th>Vehicle RegiNo.</th>
                   <th>Vehicle No.</th>
-                  <th>Vehicle Photo</th>
                   <th>Driver Photo</th>
+                  <th>Vehicle Photo</th>
                   <th>action</th>
                 </tr>
               </thead>
               <tbody>
+              <?php $count = 1; ?>
+              @foreach($drivers as $driver)
                 <tr>
-                  <td scope="row">Test</td>
-                  <td scope="row">RegiA2212</td>
-                  <td scope="row">Ac Bus</td>
-                  <td scope="row">15</td>
-                  <td scope="row">Bandarban sadar</td>
-                  <td scope="row">4:00 PM</td>
-                  <td scope="row">Sunamondir</td>
-                  <td scope="row">4:45 PM</td>
-                  <td scope="row">4:45 PM</td>
-                  <td scope="row">
-                    <a name="" id="" class="btn btn-primary" href="#" role="button">View</a>
+                  <td scope="row">{{ $count++ }}</td>
+                  <td scope="row">{{ $driver->NID_no }}</td>
+                  <td scope="row">{{ $driver->name }}</td>
+                  <td scope="row">{{ $driver->contact_no }}</td>
+                  <td scope="row">{{ $driver->address }}</td>
+                  <td scope="row">{{ $driver->license_no }}</td>
+                  <td scope="row">{{ $driver->vehicle_reg_no  }}</td>
+                  <td scope="row">{{ $driver->vehicle_type_no }}</td>
+                  <td scope="row"> <img src="{{ $driver->image == 'driver.jpg' ? url('uploads/driver/driver.jpg') : url('uploads/driver/' . $driver->driver_image) }}" height="100" width="150"></td>
+                  <td scope="row"> <img src="{{ $driver->image == 'vehicle.jpg' ? url('uploads/vehicle/vehicle.jpg') : url('uploads/vehicle/' . $driver->vehicle_image) }}" height="100" width="150"></td>
+                  <td>
+                    
+                  <button type="button" class="btn btn-primary">
+                      <a style="color:aliceblue" href="{{ route('driver_show', ['id' => $driver->id]) }}">
+                        View</a></button>
+                    <button type="button" class="btn btn-warning">
+                      <a style="color:aliceblue" href="{{ route('driver_edit', ['id' => $driver->id]) }}">
+                        Edit
+                      </a>
+                    </button>
+                    <a class="btn btn-danger delete" style="color: #fff;">
+                      Delete</a>
+                    <input class="delete_url" type="hidden" value="{{ route('driver_delete', ['id' => $driver->id]) }}">
+
                   </td>
                 </tr>
-                <tr>
-                  <th>Driver NID</th>
-                  <th>Driver Name</th>
-                  <th>Mobile No.</th>
-                  <td>Address</td>
-                  <th>Driver Licence No.</th>
-                  <th>Vehicle RegiNo.</th>
-                  <th>Vehicle No.</th>
-                  <th>Vehicle Photo</th>
-                  <th>Driver Photo</th>
-                  <th>Action</th>
-                </tr>
+              @endforeach
+
               </tbody>
             </table>
 
