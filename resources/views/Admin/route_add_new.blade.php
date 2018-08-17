@@ -38,40 +38,31 @@
               </div>
               <!-- /.box-header -->
               <!-- form start -->
-              <form role="form" action="" method="post" class="validate" enctype="multipart/form-data">
+              <form role="form" action="{{ route('route_store') }}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="box-body">
                   <div class="col-md-6">
                     <div class="form-group has-feedback">
-                      <label for="exampleInputEmail1">Route Id</label>
-                      <input type="text" class="form-control required" tabindex="1" data-parsley-trigger="change" data-parsley-minlength="2" data-parsley-maxlength="15"
-                        data-parsley-pattern="^[a-zA-Z\  \/]+$" required="" name="bus_name" placeholder="Driver NID">
-                      <span class="glyphicon  form-control-feedback"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                      <label for="exampleInputEmail1">Vehicle Type Id</label>
-                      <input type="text" class="form-control required" tabindex="1" data-parsley-trigger="change" data-parsley-minlength="2" data-parsley-maxlength="15"
-                        data-parsley-pattern="^[a-zA-Z\  \/]+$" required="" name="bus_name" placeholder="Driver NID">
-                      <span class="glyphicon  form-control-feedback"></span>
-                    </div>
-
-
-                    <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Travelling From</label>
-                      <input tabindex="5" type="text" class="form-control required" name="board_point" data-parsley-trigger="change" data-parsley-minlength="2"
-                        data-parsley-maxlength="15" data-parsley-pattern="^[a-zA-Z0-9\  \/]+$" required="" placeholder="Mobile no...">
+                      <input type="text" class="form-control required" tabindex="1" data-parsley-trigger="change" data-parsley-minlength="2" data-parsley-maxlength="15"
+                        data-parsley-pattern="^[a-zA-Z\  \/]+$" required="" name="travelling_from" placeholder="Travelling From">
                       <span class="glyphicon  form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Travelling To</label>
-                      <input tabindex="4" type="text" class="form-control required" data-parsley-trigger="change" required="" <span class="glyphicon  form-control-feedback">
-                      </span>
-                    </div>
-                    <div class="form-group has-feedback">
-                      <label for="exampleInputEmail1">Vehicle Status</label>
-                      <input tabindex="4" type="text" class="form-control required" data-parsley-trigger="change" required="" <span class="glyphicon  form-control-feedback">
-                      </span>
+                      <input type="text" class="form-control required" tabindex="1" data-parsley-trigger="change" data-parsley-minlength="2" data-parsley-maxlength="15"
+                        data-parsley-pattern="^[a-zA-Z\  \/]+$" required="" name="travelling_to" placeholder="Travelling To">
+                      <span class="glyphicon  form-control-feedback"></span>
                     </div>
 
+
+                    <div class="form-group has-feedback">
+                      <label for="exampleInputEmail1">Travelling Time</label>
+                      <input tabindex="5" type="text" class="form-control required" name="travelling_time" data-parsley-trigger="change" data-parsley-minlength="2"
+                        data-parsley-maxlength="15" data-parsley-pattern="^[a-zA-Z0-9\  \/]+$" required="" placeholder="Travelling Time">
+                      <span class="glyphicon  form-control-feedback"></span>
+                    </div>
+                    
                     <div class="box-footer">
                       <button tabindex="10" type="submit" class="btn btn-primary">Submit</button>
                     </div>
@@ -79,33 +70,24 @@
                   <div class="col-md-6">
 
                     <div class="form-group has-feedback">
-                      <label for="exampleInputEmail1">Travelling Time</label>
-                      <input tabindex="2" type="text" class="form-control required" name="bus_reg_no" data-parsley-trigger="change" data-parsley-minlength="2"
-                        data-parsley-maxlength="15" required="" placeholder="Bus RegiNumber">
-                      <span class="glyphicon  form-control-feedback"></span>
-                    </div>
-                    <div class="form-group has-feedback">
                       <label for="exampleInputEmail1">Fare</label>
-                      <input tabindex="4" type="text" class="form-control required" name="max_seats" data-parsley-trigger="change" required=""
-                        placeholder="Maximum Seats">
+                      <input tabindex="2" type="text" class="form-control required" name="fare" data-parsley-trigger="change" data-parsley-minlength="2"
+                        data-parsley-maxlength="15" required="" placeholder="Fare..">
                       <span class="glyphicon  form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                      <label for="exampleInputEmail1">Distance</label>
-                      <input tabindex="4" type="text" class="form-control required" name="max_seats" data-parsley-trigger="change" required=""
-                        placeholder="Maximum Seats">
+                      <label for="exampleInputEmail1">Service Charge</label>
+                      <input tabindex="4" type="text" class="form-control required" name="service_charge" data-parsley-trigger="change" required=""
+                        placeholder="Service Charge">
                       <span class="glyphicon  form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                      <label for="exampleInputEmail1">Service Charges</label>
-                      <input tabindex="4" type="text" class="form-control required" data-parsley-trigger="change" required="" <span class="glyphicon  form-control-feedback">
-                      </span>
+                      <label for="exampleInputEmail1">Parking Fare</label>
+                      <input tabindex="4" type="text" class="form-control required" name="parking_fare" data-parsley-trigger="change" required=""
+                        placeholder="Parking Fare..">
+                      <span class="glyphicon  form-control-feedback"></span>
                     </div>
-                    <div class="form-group has-feedback">
-                      <label for="exampleInputEmail1">Parking Fees</label>
-                      <input tabindex="4" type="text" class="form-control required" data-parsley-trigger="change" required="" <span class="glyphicon  form-control-feedback">
-                      </span>
-                    </div>
+
                   </div>
                 </div>
               </form>
