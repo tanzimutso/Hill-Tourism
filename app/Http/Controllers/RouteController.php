@@ -120,7 +120,7 @@ class RouteController extends Controller
                 return redirect()
                    ->route('all_route')
                    ->with('status', 'success')
-                   ->with('message', 'Vehicle Deleted Successfully!');
+                   ->with('message', 'Route Deleted Successfully!');
         }
     }
 
