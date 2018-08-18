@@ -1,14 +1,13 @@
+
 @extends('layouts.master2')
 
 @section('content')
-    <!-- =============================================== -->
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          View Route Details
+          View Bus Management Details
         </h1>
         <ol class="breadcrumb">
           <li>
@@ -16,19 +15,24 @@
               <i class="fa fa-dashboard"></i> Home</a>
           </li>
           <li>
-            <a href="#">Route Details</a>
+            <a href="#">Bus maangnent</a>
           </li>
-          <li class="active">View All</li>
+          <li class="active">view all</li>
         </ol>
       </section>
 
       <!-- Main content -->
       <section class="content">
+          @if(Session::has('message'))
+          <div class="alert alert-{{ session('status') }}">
+              {{ session('message') }}
+          </div>
+      @endif
 
         <!-- Default box -->
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">View Route Details</h3>
+            <h3 class="box-title">View Bus Management Details</h3>
 
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -60,41 +64,44 @@
             <table class="table table-hover table-bordered">
               <thead>
                 <tr>
-                  <th>Route ID</th>
-                  <th>Vehicle Type Id</th>
+                  <th>#</th>
                   <th>Travelling From</th>
                   <th>Travelling To</th>
                   <th>Travelling Time</th>
                   <th>Fare</th>
-                  <th>Distance</th>
-                  <th>Service Charge</th>
-                  <th>Parcking Fees</th>
-                  <th>Vehicle Status</th>
+                  <th>Service Cahrge</th>
+                  <th>Parking Fare</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
+                  <?php $count = 1; ?>
+                  @foreach($routes as $route)
                 <tr>
-                  <td scope="row">Test</td>
-                  <td scope="row">RegiA2212</td>
-                  <td scope="row">Ac Bus</td>
-                  <td scope="row">15</td>
-                  <td scope="row">Bandarban sadar</td>
-                  <td scope="row">4:00 PM</td>
-                  <td scope="row">Sunamondir</td>
-                  <td scope="row">4:45 PM</td>
+                  <td scope="row">{{ $count++ }}</td>
+                  <td scope="row">{{ $route->travelling_from }}</td>
+                  <td scope="row">{{ $route->travelling_to }}</td>
+                  <td scope="row">{{ $route->travelling_time }}</td>
+                  <td scope="row">{{ $route->fare }}</td>
+                  <td scope="row">{{ $route->service_charge }}</td>
+                  <td scope="row">{{ $route->parking_fare }}</td>
+                  <td scope="row">      
+                    <button type="button" class="btn btn-primary">
+                        <a style="color:aliceblue" href="{{ route('route_show', ['id' => $route->id]) }}">
+                            View</a></button>
+                    <button type="button" class="btn btn-warning">
+                        <a style="color:aliceblue" href="{{ route('route_edit', ['id' => $route->id]) }}">
+                          Edit
+                        </a>
+                    </button>
+                    <a class="btn btn-danger delete" style="color: #fff;">
+                        Delete</a>
+                    <input class="delete_url" type="hidden" value="{{ route('route_delete', ['id' => $route->id]) }}">
+
+                  </td>
                 </tr>
-                <tr>
-                  <th>Route ID</th>
-                  <th>Vehicle Type Id</th>
-                  <th>Travelling From</th>
-                  <th>Travelling To</th>
-                  <th>Travelling Time</th>
-                  <th>Fare</th>
-                  <th>Distance</th>
-                  <th>Service Charge</th>
-                  <th>Parcking Fees</th>
-                  <th>Vehicle Status</th>
-                </tr>
+                @endforeach
+              
               </tbody>
             </table>
 
@@ -136,9 +143,30 @@
 
       </section>
       <!-- /.content -->
+      <!-- Scroll to top button -->
+
     </div>
     <!-- /.content-wrapper -->
-    <!-- Scroll to top button -->
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+@endsection
 
- @endsection
+@section('script')
+<script>
+    $('.delete').click(function () {
+
+        var url = $(this).next('.delete_url').val();
+
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(function () {
+            window.location.href = url;
+        })
+
+    });
+</script>
+@endsection

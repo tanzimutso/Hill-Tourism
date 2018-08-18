@@ -47,6 +47,10 @@ Route::get('{id}/delete', 'DriverController@destroy')->name('driver_delete');
 //route crud Routes
 
 Route::post('route-store', 'RouteController@store')->name('route_store');
-//Route::get('/allRoute', 'RouteController@index')->name('all_route');
+Route::get('/allRoute', 'RouteController@index')->name('all_route');
+Route::get('{id}/edit', 'RouteController@edit')->name('route_edit');
+Route::post('{id}/update', 'RouteController@update')->name('route_update');
+Route::get('{id}/show', 'RouteController@show')->name('route_show');
+Route::get('{id}/delete', 'RouteController@destroy')->name('route_delete');
 
 
